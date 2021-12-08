@@ -69,7 +69,7 @@ module.exports = {
     }, 
 
     completeAppointment: (req, res) => {
-        sequelize.query('UPDATE appointments SET completed = true WHERE appt_id = apptId')
+        sequelize.query(`UPDATE appointments SET completed = true WHERE appt_id = ${apptId};`)
             .then(dbRes => res.status(200).send(dbRes[0]))
             .catch(err => console.log(err))
     }
